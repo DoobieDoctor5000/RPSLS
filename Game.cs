@@ -19,6 +19,14 @@ namespace RPSLS
         public static int result;
 
         public static int randomNumber;
+
+        public static int gamesPlayed;
+
+        public static int wins;
+
+        public static int losses;
+
+        public static int ties;
         
         public void Play() // This is where the main flow of the game takes place.
         {
@@ -45,8 +53,9 @@ namespace RPSLS
 
                 FinalResult();
 
-                Stall();
-                Clear();
+                EmptyLine();
+
+                playAgain();
 
             }
 
@@ -321,6 +330,8 @@ namespace RPSLS
         public void FinalResult()
         {
 
+            incrementGamesPlayed();
+
             switch (result)
             {
 
@@ -414,6 +425,155 @@ namespace RPSLS
 
             }
 
+        }
+
+        public static void incrementGamesPlayed()
+        {
+
+            gamesPlayed += 1;
+
+        }
+
+        public static void incrementTies()
+        {
+
+            ties += 1;
+
+        }
+
+        public static void incrementWins()
+        {
+
+            wins += 1;
+
+        }
+
+        public static void incrementLosses()
+        {
+
+            losses += 1;
+
+        }
+
+        public static void resetGame()
+        {
+
+            Console.Clear(); // explicity calling this because it's in a static method.
+
+            validData = false;
+
+        }
+
+        public void quitGame()
+        {
+
+            int computerPercentage;
+            int playerPercentage;
+            int tiePercentage;
+
+            Clear();
+
+            if (losses > 0)
+            {
+
+                computerPercentage = losses / gamesPlayed * 100;
+
+            }
+
+            else
+            {
+
+                computerPercentage = 0;
+                
+            }
+
+            if (wins > 0)
+            {
+
+                playerPercentage = wins / gamesPlayed * 100;
+
+            }
+
+            else
+            {
+
+                playerPercentage = 0;
+
+            }
+
+            if (ties > 0)
+            {
+
+                tiePercentage = ties / gamesPlayed * 100;
+
+            }
+
+            else
+            {
+
+                tiePercentage = 0;
+
+            }
+
+            Console.WriteLine("Total Games Played: {0}", gamesPlayed);
+            Console.WriteLine("Computer Wins: {0} ({1}%)", losses, computerPercentage);
+            Console.WriteLine("Wins: {0} ({1}%)", wins, playerPercentage);
+            Console.WriteLine("Ties: {0} ({1}%)", ties, tiePercentage);
+
+            EmptyLine();
+
+            Console.WriteLine("Press enter to exit the game.");
+
+            Stall();
+
+
+        }
+
+        public void playAgain()
+        {
+
+            bool validInput = false;
+            while (validInput == false)
+            {
+
+                string input;
+
+                RPSLSprompts.playAgainPrompt();
+
+                input = Console.ReadLine();
+
+                switch (input)
+                {
+
+                    case "Y":
+                    case "y":
+                    case "Yes":
+                    case "yes":
+                        validInput = true;
+                        resetGame();
+                        break;
+
+                    case "N":
+                    case "n":
+                    case "No":
+                    case "no":
+                    case "Q":
+                    case "q":
+                    case "Quit":
+                    case "quit":
+                    case "Exit":
+                    case "exit":
+                        validInput = true;
+                        quitGame();
+                        break;
+
+                    default:
+                        validInput = false;
+                        break;
+
+                }
+
+            }
         }
     }
 }

@@ -46,7 +46,7 @@ namespace RPSLS
     
     Please enter valid data.");
 
-            Game.validData = false;
+            Game.resetGame();
 
         }
 
@@ -55,12 +55,16 @@ namespace RPSLS
 
             Console.WriteLine(@"    I'm afraid it's a tie-game!");
 
+            Game.incrementTies();
+
         }
 
         public void winPaperCoversRock()
         {
 
             Console.WriteLine(@"    Paper covers Rock, so it looks like you win!");
+
+            Game.incrementWins();
 
         }
 
@@ -69,12 +73,16 @@ namespace RPSLS
 
             Console.WriteLine(@"    BOOYAKASHA!  My Rock CRUSHES your Scissors!  I WIN!");
 
+            Game.incrementLosses();
+
         }
 
         public void loseRockCrushesLizard()
         {
 
             Console.WriteLine(@"    Get that outta here!  Your Lizard is no match for my Rock!  I WIN!");
+
+            Game.incrementLosses();
 
         }
 
@@ -83,12 +91,16 @@ namespace RPSLS
 
             Console.WriteLine(@"    So... Spock vaporizes Rock.  You win... whatever...");
 
+            Game.incrementWins();
+
         }
 
         public void losePaperCoversRock()
         {
 
             Console.WriteLine(@"    Looks like my Paper covers your Rock.  I WIN!");
+
+            Game.incrementLosses();
 
         }
 
@@ -97,6 +109,8 @@ namespace RPSLS
 
             Console.WriteLine(@"    You cut my Paper with your Scissors!  Aww man.  You win!");
 
+            Game.incrementWins();
+
         }
 
         public void winLizardEatsPaper()
@@ -104,12 +118,16 @@ namespace RPSLS
 
             Console.WriteLine(@"    Your Lizard ate my Paper!  Looks like you win!");
 
+            Game.incrementWins();
+
         }
 
         public void losePaperDisprovesSpock()
         {
 
             Console.WriteLine(@"    Ha!  My Paper disproves your Spock!  I WIN!");
+
+            Game.incrementLosses();
 
         }
 
@@ -119,12 +137,16 @@ namespace RPSLS
             Console.WriteLine(@"    You crushed my Scissors with your Rock!  That's messed-up, man!
     Looks like you win.  Good for you!");
 
+            Game.incrementWins();
+
         }
 
         public void loseScissorsCutPaper()
         {
 
             Console.WriteLine(@"    Why're you bringing Paper to a Scissor-fight?  I WIN!");
+
+            Game.incrementLosses();
 
         }
 
@@ -134,6 +156,8 @@ namespace RPSLS
             Console.WriteLine(@"    Sploosh!  That's a lot of blood.  Looks like I decapitated
     your Lizard with my Scissors!  I WIN!");
 
+            Game.incrementLosses();
+
         }
 
         public void winSpockSmashesScissors()
@@ -141,6 +165,8 @@ namespace RPSLS
 
             Console.WriteLine(@"    Hey!  Those Scissors cost me a lot of money!  Your stupid Spock
     smashed them!  I guess you win, but you owe me a pair of Scissors!");
+
+            Game.incrementWins();
 
         }
 
@@ -151,12 +177,16 @@ namespace RPSLS
     my Lizard do to you to make you crush it with your Rock!?
     I guess you win, despite killing my best friend!");
 
+            Game.incrementWins();
+
         }
 
         public void loseLizardEatsPaper()
         {
 
             Console.WriteLine(@"    My Lizard thinks your Paper is tasty.  I WIN!");
+
+            Game.incrementLosses();
 
         }
 
@@ -166,6 +196,8 @@ namespace RPSLS
             Console.WriteLine(@"    LIZARD-KILLER!  YOU MONSTER!  You decapitated my best-
     friend in the whole-wide world!  You win, for now!");
 
+            Game.incrementWins();
+
         }
 
         public void loseLizardPoisonsSpock()
@@ -173,12 +205,16 @@ namespace RPSLS
 
             Console.WriteLine(@"    Your Spock is no match for my Lizard's deadly poison!  I WIN!");
 
+            Game.incrementLosses();
+
         }
 
         public void loseSpockVaporizesRock()
         {
 
             Console.WriteLine(@"    What happened to your Rock?  Oh yeah, my Spock VAPORIZED it!  I WIN!");
+
+            Game.incrementLosses();
 
         }
 
@@ -188,6 +224,8 @@ namespace RPSLS
             Console.WriteLine(@"    So you think you're smart?  Oooh your Paper disproved my Spock.
     Soooo impressive... You win for now...");
 
+            Game.incrementWins();
+
         }
 
         public void loseSpockSmashesScissors()
@@ -195,12 +233,23 @@ namespace RPSLS
 
             Console.WriteLine(@"    BOOM!  My Spock just smashed your Scissors!  I WIN!");
 
+            Game.incrementLosses();
+
         }
 
         public void winLizardPoisonsSpock()
         {
 
             Console.WriteLine(@"    Your Lizard poisoned a great man, today.  My poor Spock!  You win...");
+
+            Game.incrementWins();
+
+        }
+
+        public void playAgainPrompt()
+        {
+
+            Console.WriteLine(@"    Would you like to play again? (Y/N)");
 
         }
     }

@@ -21,7 +21,7 @@ Rock Paper Scissors Lizard Spock game for /dailyprogrammer on reddit
 * randomly pick a move...
 * compare the results and display the moves and the out come"
 *
-* BONUS: (AS OF LATEST UPDATE I HAVE NOT TOUCHED THE BONUS CHALLENGES).
+* BONUS: (BONUSES NOW IMPLEMENTED; W/ BUGS)
 * The game loops and continues to play matches until the user quits or a fixed number of games is played.
 * At the end it records some basic stats:
 
@@ -29,5 +29,7 @@ Total Games played
 Computer Wins (Number and percentage)
 Human Wins (Number and percentage)
 Ties (Number and Percentage)
+
+04/22/14 BUG REPORT:  For some reason, when there are both wins and losses, the percentages don't display the correct number.  I haven't had a chance to extensively debug this issue, but if you see what I did wrong, please let me know!
 
 */
